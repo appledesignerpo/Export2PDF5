@@ -11,12 +11,40 @@ import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.BaseFont;
 import com.itextpdf.text.pdf.PdfWriter;
 
+import org.apache.poi.xwpf.usermodel.*;
+import org.apache.xmlbeans.XmlCursor;
+import com.itextpdf.text.*;
+import com.itextpdf.text.pdf.PdfWriter;
+
+import java.io.*;
+import java.util.Scanner;
+
 public class JavaPdfHelloWorld {
 
     public static void main(String[] args) {
-        createPDF();
+
+       /*  OLD ONE createPDF();
         createDOCX();
+        createTXT();*/
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Vyberte typ dokumentu, ktorý chcete vytvoriť (PDF - voľba 1 , DOCX - voľba 2, TXT - voľba 3):");
+        String choice = scanner.nextLine().trim().toLowerCase();
+
+        if (choice.equals("1")) {
+            createPDF();
+        } else if (choice.equals("2")) {
+            createDOCX();
+        } else if (choice.equals("3")) {
+            createTXT();
+        } else {
+            System.out.println("Neplatná voľba. Vyberte si z PDF(1), DOCX(2) alebo TXT(3).");
+        }
+
+        scanner.close();
     }
+
 
     public static void createPDF() {
         Document document = new Document();
@@ -51,10 +79,10 @@ public class JavaPdfHelloWorld {
             XWPFParagraph paragraph = document.createParagraph();
             XWPFRun run = paragraph.createRun();
 
-            // Set the font to Arial
+            // font pre docx
             run.setFontFamily("Arial");
 
-            // Set the font size (optional)
+            // velkost
             run.setFontSize(25);
 
             run.setText("A Hello World DOCX document with diacritics: šščťšť ľava 2 strana  ");
@@ -63,6 +91,21 @@ public class JavaPdfHelloWorld {
             fos.close();
 
             System.out.println("DOCX created successfully.");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void createTXT() {
+        try {
+            String text = "A Hello World TXT document with diacritics: šščťšť ľava 3 strana ";
+            FileOutputStream fos = new FileOutputStream("HelloWorld.txt");
+            OutputStreamWriter writer = new OutputStreamWriter(fos, "UTF-8");
+            writer.write(text);
+            writer.close();
+            fos.close();
+
+            System.out.println("TXT created successfully.");
         } catch (IOException e) {
             e.printStackTrace();
         }
