@@ -49,7 +49,7 @@ public class JavaPdfHelloWorld {
     public static void createPDF() {
         Document document = new Document();
         try {
-            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("HelloWorld -PDF .pdf"));
+            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("HelloWorld-PDF .pdf"));
             document.open();
 
             // Písmo s podporou diakritiky
@@ -72,7 +72,7 @@ public class JavaPdfHelloWorld {
     public static void createDOCX() {
         try {
             XWPFDocument document = new XWPFDocument();
-            FileOutputStream fos = new FileOutputStream("HelloWorld DOCX.docx");
+            FileOutputStream fos = new FileOutputStream("HelloWorld-DOCX.docx");
 
 
             // Vytvor odsek a spustite text s diakritikou
@@ -99,7 +99,7 @@ public class JavaPdfHelloWorld {
     public static void createTXT() {
         try {
             String text = "A Hello World TXT document with diacritics: šščťšť ľava 3 strana ";
-            FileOutputStream fos = new FileOutputStream("HelloWorld.txt");
+            FileOutputStream fos = new FileOutputStream("HelloWorld-TXT.txt");
             OutputStreamWriter writer = new OutputStreamWriter(fos, "UTF-8");
             writer.write(text);
             writer.close();
