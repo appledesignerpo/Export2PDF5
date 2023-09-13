@@ -11,10 +11,7 @@ import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.BaseFont;
 import com.itextpdf.text.pdf.PdfWriter;
 
-import org.apache.poi.xwpf.usermodel.*;
-import org.apache.xmlbeans.XmlCursor;
-import com.itextpdf.text.*;
-import com.itextpdf.text.pdf.PdfWriter;
+
 
 import java.io.*;
 import java.util.Scanner;
