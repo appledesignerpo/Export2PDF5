@@ -46,9 +46,17 @@ public class JavaPdfHelloWorld {
             XWPFDocument document = new XWPFDocument();
             FileOutputStream fos = new FileOutputStream("HelloWorld.docx");
 
+
             // Vytvor odsek a spustite text s diakritikou
             XWPFParagraph paragraph = document.createParagraph();
             XWPFRun run = paragraph.createRun();
+
+            // Set the font to Arial
+            run.setFontFamily("Arial");
+
+            // Set the font size (optional)
+            run.setFontSize(25);
+
             run.setText("A Hello World DOCX document with diacritics: šščťšť ľava 2 strana  ");
 
             document.write(fos);
