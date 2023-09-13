@@ -49,7 +49,7 @@ public class JavaPdfHelloWorld {
     public static void createPDF() {
         Document document = new Document();
         try {
-            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("HelloWorld.pdf"));
+            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("HelloWorld -PDF .pdf"));
             document.open();
 
             // Písmo s podporou diakritiky
@@ -63,7 +63,7 @@ public class JavaPdfHelloWorld {
             document.close();
             writer.close();
 
-            System.out.println("PDF created successfully.");
+            System.out.println("PDF bol úspešne vytvorený.");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -72,7 +72,7 @@ public class JavaPdfHelloWorld {
     public static void createDOCX() {
         try {
             XWPFDocument document = new XWPFDocument();
-            FileOutputStream fos = new FileOutputStream("HelloWorld.docx");
+            FileOutputStream fos = new FileOutputStream("HelloWorld DOCX.docx");
 
 
             // Vytvor odsek a spustite text s diakritikou
@@ -90,7 +90,7 @@ public class JavaPdfHelloWorld {
             document.write(fos);
             fos.close();
 
-            System.out.println("DOCX created successfully.");
+            System.out.println("DOCX bol úspešne vytvorený.");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -105,7 +105,7 @@ public class JavaPdfHelloWorld {
             writer.close();
             fos.close();
 
-            System.out.println("TXT created successfully.");
+            System.out.println("TXT bol úspešne vytvorený.");
         } catch (IOException e) {
             e.printStackTrace();
         }
